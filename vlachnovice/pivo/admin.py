@@ -11,7 +11,7 @@ class BeerAdmin(admin.ModelAdmin):
 
 @admin.register(Tap)
 class TapAdmin(admin.ModelAdmin):
-    list_display = ('start', 'beer', 'tap')
+    list_display = ('start', 'beer', 'tap', 'volume', 'price', 'price_per_beer')
 
 @admin.register(Settings)
 class SetingsAdmin(admin.ModelAdmin):
