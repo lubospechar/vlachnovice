@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8">
+    <title>Vlachnovice</title>
+    <style>
+
+      p {
+        font-size: 25px;
+        padding: 10px;
+        margin-left: 10em;
+        margin-right: 10em;
+        text-align: center;
+      }
+      .open {
+        border: 20px solid green
+      }
+
+      .close {
+        border: 20px solid red
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+    {% if tap %}
+      <p class="{% if pub_is_open %}open{% else %}close{% endif %}"><a href="{{ tap.beer.brewery.url }}">{{ tap.beer.brewery.name }}</a>, <a href="{{ tap.beer.url }}">{{ tap.beer.name }}</a></p>
+    {% else %}
+      <p>Nic</p>
+    {% endif %}
+    </main>
+  </body>
+</html>
