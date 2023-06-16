@@ -9,5 +9,15 @@ def home(request):
 
 
     pub_is_open = Settings.objects.get(pk='open').setting
+    self_service = Settings.objects.get(pk='self-service').setting
 
-    return render(request, 'pivo/home.html', {'tap': tap, 'pub_is_open': pub_is_open})
+    if pub_is_open:
+        if self_service:
+            html_class = 'self-service'
+        else:
+            html_class = 'open'
+    else:
+        html_class = 'close'
+
+
+    return render(request, 'pivo/home.html', {'tap': tap, 'class': html_class })

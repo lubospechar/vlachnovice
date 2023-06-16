@@ -19,12 +19,17 @@
       .close {
         border: 20px solid red
       }
+
+      .self-service {
+        border: 20px solid yellow
+      }
+
     </style>
   </head>
   <body>
     <main>
     {% if tap %}
-      <p class="{% if pub_is_open %}open{% else %}close{% endif %}"><a href="{{ tap.beer.brewery.url }}">{{ tap.beer.brewery.name }}</a>, <a href="{{ tap.beer.url }}">{{ tap.beer.name }}</a></p>
+      <p class="{{ class }}"><a href="{{ tap.beer.brewery.url }}">{{ tap.beer.brewery.name }}</a>, <a href="{{ tap.beer.url }}">{{ tap.beer.name }}</a></p>
     {% else %}
       <p>Nic</p>
     {% endif %}
