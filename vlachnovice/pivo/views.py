@@ -3,6 +3,17 @@ from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
 from pivo.models import Tap, Settings
 
+class PublicView(View):
+    template_name = 'pivo/public.html'
+
+    def get_context_data(self):
+        random_image = HomepageImage.get_random_image()
+        return {'random_image': random_image}
+
+    def get(self, request, *args, **kwargs):
+        context = self.get_context_data()
+        return render(request, self.template_name, context)
+
 
 class HomeView(LoginRequiredMixin, View):
     template_name = 'pivo/home.html'

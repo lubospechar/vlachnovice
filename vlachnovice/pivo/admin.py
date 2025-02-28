@@ -1,5 +1,5 @@
 from django.contrib import admin
-from pivo.models import Brewery, Beer, Tap, Settings
+from pivo.models import Brewery, Beer, Tap, Settings, HomepageImage
 
 
 @admin.register(Brewery)
@@ -21,4 +21,6 @@ class TapAdmin(admin.ModelAdmin):
 class SettingsAdmin(admin.ModelAdmin):
     list_display = ('name', 'is_enabled')
 
-
+@admin.register(HomepageImage)
+class HomepageImageAdmin(admin.ModelAdmin):
+    list_display = ("id", "description")
