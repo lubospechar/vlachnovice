@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from pivo.models import Tap, Settings
+from django.contrib.auth.decorators import login_required
 
+
+@login_required
 def home(request):
     try:
         tap = Tap.objects.get(tap=True)
